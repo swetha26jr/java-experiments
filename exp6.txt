@@ -1,0 +1,58 @@
+interface RemoteControl {
+    void turnOn();
+    void turnOff();
+}
+
+abstract class Appliance {
+    String name;
+    
+    Appliance(String name) {
+        this.name = name;
+    }
+
+    abstract void displayAppliance();
+}
+
+class SmartTV extends Appliance implements RemoteControl {
+    boolean status;
+
+    SmartTV(String name) {
+        super(name);
+        status = false;
+    }
+
+    @Override
+    public void turnOn() {
+        status = true;
+        System.out.println("Smart TV is turned ON");
+    }
+
+    @Override
+    public void turnOff() {
+        status = false;
+        System.out.println("Smart TV is turned OFF");
+    }
+
+    @Override
+    void displayAppliance() {
+        System.out.println("Appliance: " + name);
+        System.out.println("Status: " + (status ? "ON" : "OFF"));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Appliance appliance = new SmartTV("Samsung Smart TV");
+
+        appliance.displayAppliance();
+
+        RemoteControl remote = (RemoteControl) appliance;
+
+        remote.turnOn();
+        appliance.displayAppliance();
+
+        remote.turnOff();
+        appliance.displayAppliance();
+    }
+}
