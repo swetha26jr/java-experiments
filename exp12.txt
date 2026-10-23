@@ -1,0 +1,47 @@
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // List interface using ArrayList
+        List<String> students = new ArrayList<>();
+        students.add("Arun");
+        students.add("Priya");
+        students.add("Arun");
+
+        System.out.println("Student List: " + students);
+
+        // Set interface using HashSet
+        Set<String> courses = new HashSet<>();
+        courses.add("Java");
+        courses.add("Python");
+        courses.add("Java");
+
+        System.out.println("Course Set: " + courses);
+
+        // Map interface using HashMap
+        Map<Integer, String> studentMap = new HashMap<>();
+        studentMap.put(101, "Arun");
+        studentMap.put(102, "Priya");
+        studentMap.put(103, "Kumar");
+
+        System.out.println("Student Map:");
+        for (Map.Entry<Integer, String> entry : studentMap.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+
+        // Queue interface using LinkedList
+        Queue<String> queue = new LinkedList<>();
+        queue.offer("Arun");
+        queue.offer("Priya");
+        queue.offer("Kumar");
+
+        System.out.println("Queue Before Processing: " + queue);
+
+        String processed = queue.poll();
+        System.out.println("Processed Student: " + processed);
+
+        System.out.println("Queue After Processing: " + queue);
+    }
+}

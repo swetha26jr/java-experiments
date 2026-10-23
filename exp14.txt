@@ -1,0 +1,39 @@
+
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String fileName = "student.txt";
+
+        try {
+            FileWriter fw = new FileWriter(fileName);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            bw.write("Roll Number: 101");
+            bw.newLine();
+            bw.write("Name: Arun");
+            bw.newLine();
+            bw.write("Department: CSE");
+            bw.newLine();
+            bw.write("CGPA: 8.5");
+
+            bw.close();
+
+            System.out.println("Student data written successfully.");
+
+            FileReader fr = new FileReader(fileName);
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            System.out.println("\nStudent Details:");
+
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            br.close();
+        } catch (IOException e) {
+            System.out.println("File operation error: " + e.getMessage());
+        }
+    }
+}
